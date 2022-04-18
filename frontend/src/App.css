@@ -1,19 +1,42 @@
-.App {
-  text-align: center;
-}
-
-
 
 .App-header {
   background-color: #282c34;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  /* color: white; */
+  height: 100px;
+  border: 1px solid black;
+}
+
+.App-header a {
+  font-size: calc(20px + 2vmin);
   color: #61dafb;
+  text-decoration: none;
+  display: block;
+  /* border: 2px solid red; */
+  margin-top: 20px;
+  margin-left: 80px;
+}
+
+.featured {
+  font-size: calc(20px + 2vmin);
+  text-align: center;
+}
+
+.products{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product{
+  border: 2px solid ;
+  margin : 20px;
+}
+
+.product img{
+  width: 100%;
+  max-width: 300px;
+}
+.product-info{
+  margin : 20px
 }
 
 
