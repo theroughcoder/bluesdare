@@ -1,19 +1,10 @@
 
-.App-header {
-  background-color: #282c34;
-  height: 10vh;
-  line-height: 10vh;
-  border: 1px solid black;
+.App{
+  min-height: 100vh;
 }
 
-.App-header a {
-  
-  font-size: calc(20px + 2vmin);
-  color: #61dafb;
-  text-decoration: none;
-  /* border: 2px solid red; */
-  margin-left: 5%;
-  vertical-align: middle;
+main{
+  flex: 1;
 }
 
 .featured {
@@ -39,7 +30,13 @@
 .product-info{
   margin : 20px
 }
-
+.rating span{
+  color: rgb(243, 231, 17);
+}
+.btn-primary{
+  background-color:rgb(250, 210, 118);
+  color:  black;
+}
 
 
 

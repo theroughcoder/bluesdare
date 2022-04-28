@@ -1,71 +1,67 @@
-import { useEffect, useReducer, useState } from 'react';
-import logger from 'use-reducer-logger';
-import { Link } from 'react-router-dom';
+import { useEffect, useReducer, useState } from "react";
+import logger from "use-reducer-logger";
 // import data from '../data'
-import axios from "axios"
+import axios from "axios";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Product from "../components/Product"
 
 function HomeScreen() {
-
- const reducer = (state, action)=> {
-    switch(action.type){
-      case "FETCH_REQUEST" : 
-      return {...state, loading : true, }
-
-      case "FETCH_SUCCESS" : 
-      return {...state, products: action.payload,  loading : false, }
-
-      case "FETCH_FAIL" : 
-      return {...state, loading : false, error: action.payload}
-
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "FETCH_REQUEST":
+        return { ...state, loading: true };
+      case "FETCH_SUCCESS":
+        return { ...state, products: action.payload, loading: false };
+      case "FETCH_FAIL":
+        return { ...state, loading: false, error: action.payload };
       default:
         return state;
     }
- }
+  };
 
-//fetching the data from server  
-const [{loading, products, error}, dispatch] = useReducer(logger( reducer), {
-  products: [],
-  loading : true,
-  error: ""
-})
+  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+    products: [],
+    loading: true,
+    error: "",
+  });
+  // const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      dispatch({ type: "FETCH_REQUEST" });
+      try {
+        const result = await axios.get("/api/products");
+        dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+      } catch (err) {
+        dispatch({ type: "FETCH_FAIL", payload: err.message });
+      }
 
-// const [products, setProducts] = useState([]);
-useEffect(()=>{
-  const fetchData = async() =>{
-    dispatch({type: "FETCH_REQUEST"});
-    try{
-      const result = await axios.get("/api/products");
-      dispatch({type : "FETCH_SUCCESS", payload: result.data});
-    } catch(err){
-      dispatch({type : "FETCH_FAIL", payload : err.message})
-    }
-    // setProducts(result.data)
-  }
-  fetchData();
-}, []);
+      // setProducts(result.data);
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
       <p className="featured">Featured Product</p>
 
-      <div className="products">{
-      loading ? <div>Loading....</div>:
-      error ? {error}: 
-
-        products.map((value) => {
-          return (
-            <div className="product" key={value.slug}>
-            <Link to= {`/product/ ${value.slug}`}>
-              <img src={value.image}/>
-            </Link>
-              <div className="product-info">
-                <p>{value.name}</p>
-                <p><strong>&#x20B9; {value.price}</strong></p>
-                <button>Add to cart</button>
-              </div>
-            </div>
-          );
-        })}
+      <div className="products">
+        {loading ? (<div>Loading....</div>) :
+           error ? ({ error }) :
+            (
+         <Container >
+            <Row>
+              {products.map((value) => {
+                  return (
+                <Col key={value.slug} sm ={12} md ={4} lg = {3} className ="mb-4">
+                    <Product product = {value}/>
+                </Col>
+                  )
+              })}
+            </Row>
+         </Container>     
+        )}
       </div>
     </>
   );
