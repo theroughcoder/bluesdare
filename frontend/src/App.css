@@ -6,16 +6,13 @@
 main{
   flex: 1;
 }
+.container{
+  text-align: center;
+}
 
 .featured {
   font-size: calc(20px + 2vmin);
   text-align: center;
-}
-
-.products{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .product{
@@ -25,7 +22,7 @@ main{
 
 .product img{
   width: 100%;
-  max-width: 300px;
+  
 }
 .product-info{
   margin : 20px
@@ -34,8 +31,11 @@ main{
   color: rgb(243, 231, 17);
 }
 .btn-primary{
-  background-color:rgb(250, 210, 118);
+  background-color:rgb(251, 207, 104);
   color:  black;
+}
+.img-large{
+  width: 100%;
 }
 
 

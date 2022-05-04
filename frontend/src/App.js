@@ -22,10 +22,12 @@ function App() {
         </header>
 
         <main>
+        <Container className = "mt-4">
           <Routes>
             <Route path="/" element={<HomeScreen />} />;
             <Route path="/product/:slug" element={<ProductScreen />} />;
           </Routes>
+        </Container>
         </main>
         <footer>
           <div className = "text-center">All rights reserved</div>

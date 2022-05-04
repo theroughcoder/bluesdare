@@ -5,7 +5,10 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Product from "../components/Product"
+import Product from "../components/Product";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
+import { getError} from "../components/utils";
 
 function HomeScreen() {
   const reducer = (state, action) => {
@@ -34,7 +37,7 @@ function HomeScreen() {
         const result = await axios.get("/api/products");
         dispatch({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (err) {
-        dispatch({ type: "FETCH_FAIL", payload: err.message });
+        dispatch({ type: "FETCH_FAIL", payload: getError(err) });
       }
 
       // setProducts(result.data);
@@ -46,21 +49,23 @@ function HomeScreen() {
     <>
       <p className="featured">Featured Product</p>
 
-      <div className="products">
-        {loading ? (<div>Loading....</div>) :
-           error ? ({ error }) :
-            (
-         <Container >
+      <div className="container">
+        {loading ? (
+          <LoadingBox/>
+        ) : error ? (
+          <MessageBox variant= "danger">{error}</MessageBox>
+        ) : (
+          <Container>
             <Row>
               {products.map((value) => {
-                  return (
-                <Col key={value.slug} sm ={12} md ={4} lg = {3} className ="mb-4">
-                    <Product product = {value}/>
-                </Col>
-                  )
+                return (
+                  <Col key={value.slug} sm={12} md={4} lg={3} className="mb-4">
+                    <Product product={value} />
+                  </Col>
+                );
               })}
             </Row>
-         </Container>     
+          </Container>
         )}
       </div>
     </>
