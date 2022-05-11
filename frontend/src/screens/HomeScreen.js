@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import Product from "../components/Product";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import { getError} from "../components/utils";
+import { getError} from "../utils";
 
 function HomeScreen() {
   const reducer = (state, action) => {
@@ -44,6 +44,8 @@ function HomeScreen() {
     };
     fetchData();
   }, []);
+
+  
 
   return (
     <>

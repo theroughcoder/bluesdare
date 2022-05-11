@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      
+      _id: 1,
       name: 'Nike Slim Shirt',
       slug: 'nike-slim-shirt',
       category: 'Shirts',
@@ -14,7 +14,7 @@ const data = {
       description: 'high quality product',
     },
     {
-     
+      _id: 2,
       name: 'Adidas Fit Shirt',
       slug: 'adidas-fit-shirt',
       category: 'Shirts',
@@ -27,7 +27,7 @@ const data = {
       description: 'high quality product',
     },
     {
-     
+      _id: 3,
       name: 'Lacoste Free Shirt',
       slug: 'lacoste-free-shirt',
       category: 'Shirts',
@@ -40,20 +40,20 @@ const data = {
       description: 'high quality product',
     },
     {
-
+      _id: 4,
       name: 'Nike Slim Pant',
       slug: 'nike-slim-pant',
       category: 'Pants',
       image: '/images/p4.jpg',
       price: 7800,
-      countInStock: 15,
+      countInStock: 10,
       brand: 'Nike',
       rating: 4.5,
       numReviews: 14,
       description: 'high quality product',
     },
     {
-     
+      _id: 5,
       name: 'Puma Slim Pant',
       slug: 'puma-slim-pant',
       category: 'Pants',
@@ -66,20 +66,20 @@ const data = {
       description: 'high quality product',
     },
     {
-      
+      _id: 6,
       name: 'Adidas Fit Pant',
       slug: 'adidas-fit-pant',
       category: 'Pants',
       image: '/images/p6.jpg',
       price: 1390,
-      countInStock: 12,
+      countInStock: 0,
       brand: 'Adidas',
       rating: 4.5,
       numReviews: 15,
       description: 'high quality product',
     },
     {
-     
+      _id: 7,
       name: 'Louis Philippe Shirt',
       slug: 'louis-philippe-shirt',
       category: 'Shirts',
@@ -92,7 +92,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      
+      _id: 8,
       name: 'Van Heusen Shirt',
       slug: 'van-heusen-shirt',
       category: 'Shirts',
@@ -105,7 +105,7 @@ const data = {
       description: 'high quality product',
     },
     {
-     
+      _id: 9,
       name: 'Raymond Shirt',
       slug: 'raymond-shirt',
       category: 'Shirts',
@@ -118,7 +118,7 @@ const data = {
       description: 'high quality product',
     },
     {
-     
+      _id: 10,
       name: 'Pepe Jeans Black Shirt',
       slug: 'pepe-jeans-black-shirt',
       category: 'Shirts',
@@ -131,7 +131,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      
+      _id: 11,
       name: 'Benetton Cool Shirt',
       slug: 'benetton-cool-shirt',
       category: 'Shirts',
@@ -144,7 +144,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      
+      _id: 12,
       name: 'Van Heusen Black Pant',
       slug: 'van-heusen-black-pant',
       category: 'Pants',
@@ -157,7 +157,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      
+      _id: 13,
       name: 'Louis Philippe Grey Pant',
       slug: 'louis-philippe-grey-pant',
       category: 'Pants',
@@ -170,7 +170,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      
+      _id: 14,
       name: 'Raymond Fit Pant',
       slug: 'raymond-fit-pant',
       category: 'Pants',
@@ -183,7 +183,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      
+      _id: 15,
       name: 'Pepe Jeans Slim Fit Pant',
       slug: 'pepe-jeans-slim-fit-pant',
       category: 'Pants',
@@ -196,7 +196,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      
+      _id: 16,
       name: 'Benetton Fit Pant',
       slug: 'benetton-fit-pant',
       category: 'Pants',
@@ -209,7 +209,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      
+      _id: 17,
       name: 'Blackberry Fit Shirt',
       slug: 'blackberry-fit-shirt',
       category: 'Shirts',
@@ -222,7 +222,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      
+      _id: 18,
       name: 'Blackberry Slim Fit Pant',
       slug: 'blackberry-slim-fit-pant',
       category: 'Pants',

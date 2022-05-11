@@ -12,21 +12,10 @@ main{
 
 .featured {
   font-size: calc(20px + 2vmin);
-  text-align: center;
+  /* text-align: center; */
 }
 
-.product{
-  border: 2px solid ;
-  margin : 20px;
-}
 
-.product img{
-  width: 100%;
-  
-}
-.product-info{
-  margin : 20px
-}
 .rating span{
   color: rgb(243, 231, 17);
 }
@@ -36,6 +25,9 @@ main{
 }
 .img-large{
   width: 100%;
+}
+.img-thumbnail{
+  height: 80px
 }
 
 
