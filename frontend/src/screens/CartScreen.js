@@ -33,13 +33,13 @@ function CartScreen() {
   };
   const checkoutHandler = () => {
       navigate('/signin?redirect=/shopping');
-  }
+  } 
   return (
     <>
       <Helmet>
         <title>Shopping Cart</title>
       </Helmet>
-      <h1>Shopping Cart</h1>
+      <h1 className="shopping-cart">Shopping Cart</h1>
       <Container>
         <Row>
           <Col md={8}>

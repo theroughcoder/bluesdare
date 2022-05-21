@@ -6,13 +6,14 @@
 main{
   flex: 1;
 }
-.container{
-  text-align: center;
-}
+
 
 .featured {
   font-size: calc(20px + 2vmin);
-  /* text-align: center; */
+  text-align: center;
+}
+.shopping-cart{
+  text-align: center;
 }
 
 
@@ -29,6 +30,11 @@ main{
 .img-thumbnail{
   height: 80px
 }
-
+.small-container{
+  max-width: 600px;
+}
+.loading{
+  text-align: center;
+}
 
 

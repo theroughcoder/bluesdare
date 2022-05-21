@@ -1,7 +1,21 @@
+import bcrypt from 'bcryptjs';
+
 const data = {
+  users: [
+    {name: "rishabh pant",
+    email: "panti@gmail.com",
+    password: bcrypt.hashSync('123456'),
+    isAdmin: true
+  },
+    {name: "josh hazlewood",
+    email: "josh@gmail.com",
+    password: bcrypt.hashSync('123456'),
+    isAdmin: false
+  }
+  ], 
   products: [
     {
-      _id: 1,
+      // _id: 1,
       name: 'Nike Slim Shirt',
       slug: 'nike-slim-shirt',
       category: 'Shirts',
@@ -14,7 +28,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 2,
+      // _id: 2,
       name: 'Adidas Fit Shirt',
       slug: 'adidas-fit-shirt',
       category: 'Shirts',
@@ -27,7 +41,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 3,
+      // _id: 3,
       name: 'Lacoste Free Shirt',
       slug: 'lacoste-free-shirt',
       category: 'Shirts',
@@ -40,7 +54,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 4,
+      // _id: 4,
       name: 'Nike Slim Pant',
       slug: 'nike-slim-pant',
       category: 'Pants',
@@ -53,7 +67,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 5,
+      // _id: 5,
       name: 'Puma Slim Pant',
       slug: 'puma-slim-pant',
       category: 'Pants',
@@ -66,7 +80,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 6,
+      // _id: 6,
       name: 'Adidas Fit Pant',
       slug: 'adidas-fit-pant',
       category: 'Pants',
@@ -79,7 +93,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 7,
+      // _id: 7,
       name: 'Louis Philippe Shirt',
       slug: 'louis-philippe-shirt',
       category: 'Shirts',
@@ -92,7 +106,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 8,
+      // _id: 8,
       name: 'Van Heusen Shirt',
       slug: 'van-heusen-shirt',
       category: 'Shirts',
@@ -105,7 +119,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 9,
+      // _id: 9,
       name: 'Raymond Shirt',
       slug: 'raymond-shirt',
       category: 'Shirts',
@@ -118,7 +132,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 10,
+      // _id: 10,
       name: 'Pepe Jeans Black Shirt',
       slug: 'pepe-jeans-black-shirt',
       category: 'Shirts',
@@ -131,7 +145,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 11,
+      // _id: 11,
       name: 'Benetton Cool Shirt',
       slug: 'benetton-cool-shirt',
       category: 'Shirts',
@@ -144,7 +158,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 12,
+      // _id: 12,
       name: 'Van Heusen Black Pant',
       slug: 'van-heusen-black-pant',
       category: 'Pants',
@@ -157,7 +171,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 13,
+      // _id: 13,
       name: 'Louis Philippe Grey Pant',
       slug: 'louis-philippe-grey-pant',
       category: 'Pants',
@@ -170,7 +184,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 14,
+      // _id: 14,
       name: 'Raymond Fit Pant',
       slug: 'raymond-fit-pant',
       category: 'Pants',
@@ -183,7 +197,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 15,
+      // _id: 15,
       name: 'Pepe Jeans Slim Fit Pant',
       slug: 'pepe-jeans-slim-fit-pant',
       category: 'Pants',
@@ -196,7 +210,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 16,
+      // _id: 16,
       name: 'Benetton Fit Pant',
       slug: 'benetton-fit-pant',
       category: 'Pants',
@@ -209,7 +223,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 17,
+      // _id: 17,
       name: 'Blackberry Fit Shirt',
       slug: 'blackberry-fit-shirt',
       category: 'Shirts',
@@ -222,7 +236,7 @@ const data = {
       description: 'high quality product',
     },
     {
-      _id: 18,
+      // _id: 18,
       name: 'Blackberry Slim Fit Pant',
       slug: 'blackberry-slim-fit-pant',
       category: 'Pants',

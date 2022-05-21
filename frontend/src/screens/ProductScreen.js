@@ -72,9 +72,10 @@ return(
     <>
 
     <div className="container">
-      {loading ? ( <LoadingBox/>) :
+      {loading ?  <div className="loading"><LoadingBox/></div>   
+ :
          error ? ( <MessageBox variant="danger">{error}</MessageBox>) :
-          
+           
         
           <Container>
             <Row>
@@ -139,4 +140,4 @@ return(
 }
 
 
-export default ProductScreen;
+export default ProductScreen; 

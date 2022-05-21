@@ -53,7 +53,7 @@ function HomeScreen() {
 
       <div className="container">
         {loading ? (
-          <LoadingBox/>
+          <div className="loading"><LoadingBox/></div>   
         ) : error ? (
           <MessageBox variant= "danger">{error}</MessageBox>
         ) : (
@@ -65,7 +65,7 @@ function HomeScreen() {
                     <Product product={value} />
                   </Col>
                 );
-              })}
+              })} 
             </Row>
           </Container>
         )}
