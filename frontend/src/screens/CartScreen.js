@@ -32,7 +32,7 @@ function CartScreen() {
     cdxDispatch({ type: "CART_REMOVE_ITEM", payload: { ...item } });
   };
   const checkoutHandler = () => {
-      navigate('/signin?redirect=/shopping');
+      navigate('/signin?redirect=/shipping');
   } 
   return (
     <>

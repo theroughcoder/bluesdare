@@ -16,6 +16,8 @@ export default function SigninScreen(){
     const navigate = useNavigate();
     const [email, setEmail] = useState(" ")
     const [password, setPassword] = useState(" ")
+    const [name, setFullName] = useState(" ")
+    const [confirmPassword, setConfirmPassword] = useState(" ")
 
     const {state, dispatch: ctxDispatch} = useContext(Store);
     const {userInfo} = state;
@@ -27,11 +29,13 @@ export default function SigninScreen(){
     const submitHandler = async (e)=>{
         e.preventDefault();
         try{
-            const {data} = await Axios.post('/api/users/signin', {
+            const {data} = await Axios.post('/api/users/signup', {
+                name,
                 email,
-                password
+                password,
+                confirmPassword
             });
-            ctxDispatch({type: "USER_SIGNIN", payload: data})
+            ctxDispatch({type: "USER_SIGNUP", payload: data})
             navigate(redirect)
         }catch(err){
             toast.error(getError(err))
@@ -45,11 +49,15 @@ export default function SigninScreen(){
     return( 
         <Container className="small-container">
         <Helmet>
-            <title>Sign In</title>
+            <title>Sign Up</title>
         </Helmet>
         
         <h1 className="my-3">Sign In</h1>
         <Form onSubmit={submitHandler}>
+            <Form.Group className="mb-3" controlId="fullName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control onChange={(e)=>{setFullName(e.target.value)}} type="text" required></Form.Control>
+            </Form.Group>
             <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Email</Form.Label>
                 <Form.Control onChange={(e)=>{ setEmail(e.target.value)}} type="email" required></Form.Control>
@@ -58,14 +66,14 @@ export default function SigninScreen(){
                 <Form.Label>Password</Form.Label>
                 <Form.Control onChange={(e)=>{setPassword(e.target.value)}} type="password" required></Form.Control>
             </Form.Group>
+            <Form.Group className="mb-3" controlId="confirmPassword">
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control onChange={(e)=>{setConfirmPassword(e.target.value)}} type="password" required></Form.Control>
+            </Form.Group>
             <div className="md-3">
-                <Button type="submit">Sign In</Button>
+                <Button type="submit">Sign Up</Button>
             </div>
-            <div className="md-3">
-             New customer?{' '}
-             <Link to ={`/signup?redirect=${redirect}`}> Create your account</Link>
 
-            </div>
 
         </Form>
 

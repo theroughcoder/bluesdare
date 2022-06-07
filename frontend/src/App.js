@@ -5,6 +5,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import SigninScreen from "./screens/SigninScreen";
+import SignupScreen from "./screens/SignupScreen";
+import ShippingAddressScreen from "./screens/ShippingAddressScreen";
+import PaymentMethodScreen from "./screens/PaymentMethodScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
+import OrderScreen from "./screens/OrderScreen";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
@@ -16,6 +21,8 @@ import { Store } from "./Store";
 import { useContext } from "react";
 import { CartScreen } from "./screens/CartScreen";
 import { NavDropdown } from "react-bootstrap";
+import OrderHistoryScreen from "./screens/OrderHistoryScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 
 
@@ -76,8 +83,15 @@ function App() {
             <Routes>
               <Route path="/" element={<HomeScreen />} />;
               <Route path="/product/:slug" element={<ProductScreen />} />;
+              <Route path="/order/:id" element={<OrderScreen/>} />;
               <Route path="/signin" element={<SigninScreen/>} />;
+              <Route path="/signup" element={<SignupScreen/>} />;
               <Route path="/cart" element={<CartScreen />} />;
+              <Route path="/shipping" element={<ShippingAddressScreen />} />;
+              <Route path="/payment" element={<PaymentMethodScreen />} />;
+              <Route path="/placeorder" element={<PlaceOrderScreen />} />;
+              <Route path="/orderhistory" element={<OrderHistoryScreen />} />;
+              <Route path="/profile" element={<ProfileScreen/>} />;
             </Routes>
           </Container>
         </main>
