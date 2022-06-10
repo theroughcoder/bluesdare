@@ -48,14 +48,14 @@ function CartScreen() {
                 return (
                   <ListGroup.Item key={item._id} className="mb-2">
                     <Row className="align-items-center">
-                      <Col md={2}>
+                      <Col lg={2} md={2}  xs={4}>
                         <img
                           src={item.image}
                           alt={item.name}
                           className="img-fluid round img-thumbnail"
                         />
                       </Col>
-                      <Col md={3}>
+                      <Col lg={2} md={3} xs={5}>
                         <Link
                           style={{
                             width: "200px",
@@ -67,7 +67,9 @@ function CartScreen() {
                           {item.name}
                         </Link>
                       </Col>
-                      <Col md={2}>
+                      <Col lg={4} md={4} xs={5}>
+                      <div className="d-flex flex-row justify-content-evenly">
+
                         <Button
                           onClick={() =>
                             updateCartHandler(item, item.quantity - 1)
@@ -87,11 +89,12 @@ function CartScreen() {
                         >
                           <i className="fas fa-plus-circle"></i>
                         </Button>
+                      </div>
                       </Col>
-                      <Col md={3}>
+                      <Col lg={2} md={1} xs = {4}>
                         <strong>&#x20B9; {item.price}</strong>
                       </Col>
-                      <Col md={2}>
+                      <Col lg={2} md={1} xs={3}>
                         <Button
                           onClick={() => removeItemHandler(item)}
                           variant="light"

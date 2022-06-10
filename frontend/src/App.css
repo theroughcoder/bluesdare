@@ -1,10 +1,20 @@
 
 .App{
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  /* position: relative; */
+}
+.App-header{
+  /* width: 100%; */
+  top: 0;
+  position: sticky;
+  z-index: 1;
 }
 
 main{
   flex: 1;
+  margin-top: 20px;
 }
 
 
@@ -45,4 +55,41 @@ main{
   color:#f08000;
 }
 
+/* sidebar */
+.side-navbar {
+  
+  width: 240px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -240px;
+  background-color: #100901;
+  transition: 0.5s;
+  z-index: 1;
 
+}
+.active-cont {
+  margin-left: 240px;
+}
+.active-nav {
+  left : 0;
+}
+.site-container {
+  transition: 0.5s;
+}
+.sidebar-link {
+  color: azure;
+}
+.sidebar-link:hover {
+  color: rgb(240, 224, 48);
+}
+.order-history{
+  overflow: auto;
+}
+
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .active-cont {
+    margin-left: 0;
+  }
+}

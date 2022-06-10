@@ -67,6 +67,8 @@ export default function OrderHistoryScreen() {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
+        <div className="order-history">
+
         <Container>
           <Table  hover>
             <thead>
@@ -96,6 +98,7 @@ export default function OrderHistoryScreen() {
             </tbody>
           </Table>
         </Container>
+        </div>
       )}
     </div>
   );
