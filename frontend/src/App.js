@@ -25,6 +25,8 @@ import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import { getError } from "./utils";
 import axios from "axios";
+import SearchBox from "./components/SearchBox";
+import SearchScreen from "./screens/SearchScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -58,8 +60,10 @@ function App() {
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header className="App-header">
-          <Navbar bg="dark" variant="dark">
+          <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
+            <Nav className="me-auto ">
+
               <Button
                 variant="dark"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
@@ -69,7 +73,11 @@ function App() {
               <LinkContainer to="/">
                 <Navbar.Brand>Bluesdare</Navbar.Brand>
               </LinkContainer>
-              <Nav className="me-auto  w-100  justify-content-end">
+            </Nav>
+            <Nav className="me-auto ">
+              <SearchBox/>
+            </Nav>
+              <Nav >
                 <Link to="/cart" className="nav-link">
                   Cart
                   {cart.cartItems.length > 0 && (
@@ -79,7 +87,7 @@ function App() {
                   )}
                 </Link>
                 {userInfo ? (
-                  <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                  <NavDropdown title={userInfo.name} id="basic-nav-dropdown " align="end" >
                     <LinkContainer to="/profile">
                       <NavDropdown.Item>User Profile</NavDropdown.Item>
                     </LinkContainer>
@@ -103,6 +111,7 @@ function App() {
               </Nav>
             </Container>
           </Navbar>
+
         </header>
         <div
           className={
@@ -163,6 +172,7 @@ function App() {
               <Route path="/placeorder" element={<PlaceOrderScreen />} />;
               <Route path="/orderhistory" element={<OrderHistoryScreen />} />;
               <Route path="/profile" element={<ProfileScreen />} />;
+              <Route path="/search" element={<SearchScreen />} />;
             </Routes>
           </Container>
         </main>

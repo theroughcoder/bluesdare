@@ -74,7 +74,6 @@ export default function SigninScreen(){
                 <Button type="submit">Sign Up</Button>
             </div>
 
-
         </Form>
 
         </Container>

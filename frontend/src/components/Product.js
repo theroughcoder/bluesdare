@@ -47,7 +47,7 @@ function Product(prop) {
         {product.countInStock === 0 ? (
           <Button disabled variant ="light">Out of Stock</Button>
         ) : (
-          <Button onClick={addToCartHandler}>Add to cart</Button>
+          <Button variant="warning" onClick={addToCartHandler}>Add to cart</Button>
         )}
       </Card.Body>
     </Card>

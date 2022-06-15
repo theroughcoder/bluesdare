@@ -10,6 +10,7 @@
   top: 0;
   position: sticky;
   z-index: 1;
+  font-size:medium;
 }
 
 main{
