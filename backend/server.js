@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGODB_URL).then(()=> {console.log("Connect to DB"
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
-         
+           
 app.use("/api/seed", seedRouter);
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
