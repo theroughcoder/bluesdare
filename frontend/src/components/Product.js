@@ -31,13 +31,13 @@ function Product(prop) {
     navigate("/cart");
   };
   return (
-    <Card>
+    <Card >
       <Link to={`/product/${product.slug}`}>
-        <img src={product.image} className="card-img-top" />
+        <img src={product.image} className="card-img-top homeScreen-card-img" />
       </Link>
       <Card.Body>
         <Link to={`/product/${product.slug}`}>
-          <Card.Title>{product.name}</Card.Title>
+          <Card.Title><div className="homescreen-card-title">{product.name}</div></Card.Title>
         </Link>
         <Rating rating={product.rating} reviews={product.numReviews} />
         <Card.Text>

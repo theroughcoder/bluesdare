@@ -124,38 +124,29 @@ export default function ProductEditScreen() {
       dispatch({ type: 'UPDATE_FAIL' });
     }
   };
-//   const uploadFileHandler = async (e, forImages) => {
-//     const file = e.target.files[0];
-//     const bodyFormData = new FormData();
-//     bodyFormData.append('file', file);
-//     try {
-//       dispatch({ type: 'UPLOAD_REQUEST' });
-//       const { data } = await axios.post('/api/upload', bodyFormData, {
-//         headers: {
-//           'Content-Type': 'multipart/form-data',
-//           authorization: `Bearer ${userInfo.token}`,
-//         },
-//       });
-//       dispatch({ type: 'UPLOAD_SUCCESS' });
+  const uploadFileHandler = async (e, forImages) => {
+    const file = e.target.files[0];
+    const bodyFormData = new FormData();
+    bodyFormData.append('file', file);
+    try {
+      dispatch({ type: 'UPLOAD_REQUEST' });
+      const { data } = await axios.post('/api/upload', bodyFormData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          authorization: `Bearer ${userInfo.token}`,
+        },
+      });
+      dispatch({ type: 'UPLOAD_SUCCESS' });
 
-//       if (forImages) {
-//         setImages([...images, data.secure_url]);
-//       } else {
-//         setImage(data.secure_url);
-//       }
-//       toast.success('Image uploaded successfully. click Update to apply it');
-//     } catch (err) {
-//       toast.error(getError(err));
-//       dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
-//     }
-//   };
-//   const deleteFileHandler = async (fileName, f) => {
-//     console.log(fileName, f);
-//     console.log(images);
-//     console.log(images.filter((x) => x !== fileName));
-//     setImages(images.filter((x) => x !== fileName));
-//     toast.success('Image removed successfully. click Update to apply it');
-//   };
+        setImage(data.secure_url);
+     
+      toast.success('Image uploaded successfully. click Update to apply it');
+    } catch (err) {
+      toast.error(getError(err));
+      dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
+    }
+  };
+
   return (
     <Container className="small-container">
       <Helmet>
@@ -207,36 +198,14 @@ export default function ProductEditScreen() {
               value={image}
               onChange={(e) => setImage(e.target.value)}
               required
-            />
+            /> 
           </Form.Group>
-          {/* <Form.Group className="mb-3" controlId="imageFile">
+          <Form.Group className="mb-3" controlId="imageFile">
             <Form.Label>Upload Image</Form.Label>
-            <Form.Control type="file" onChange={uploadFileHandler} />
+            <Form.Control  type="file" onChange={uploadFileHandler} />
             {loadingUpload && <LoadingBox></LoadingBox>}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="additionalImage">
-            <Form.Label>Additional Images</Form.Label>
-            {images.length === 0 && <MessageBox>No image</MessageBox>}
-            <ListGroup variant="flush">
-              {images.map((x) => (
-                <ListGroup.Item key={x}>
-                  {x}
-                  <Button variant="light" onClick={() => deleteFileHandler(x)}>
-                    <i className="fa fa-times-circle"></i>
-                  </Button>
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="additionalImageFile">
-            <Form.Label>Upload Aditional Image</Form.Label>
-            <Form.Control
-              type="file"
-              onChange={(e) => uploadFileHandler(e, true)}
-            />
-            {loadingUpload && <LoadingBox></LoadingBox>}
-          </Form.Group> */}
 
           <Form.Group className="mb-3" controlId="category">
             <Form.Label>Category</Form.Label>

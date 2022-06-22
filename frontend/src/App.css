@@ -27,7 +27,17 @@ main{
   text-align: center;
 }
 
+.homeScreen-card-img{
+  /* width: 300px; */
+  height: 350px;
+  padding: 20px;
+}
 
+.homescreen-card-title{
+  /* width: 280px; */
+  height: 30px;
+  overflow: hidden;
+} 
 .rating span{
   color: rgb(243, 231, 17);
 }

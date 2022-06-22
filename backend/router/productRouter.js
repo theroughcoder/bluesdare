@@ -7,7 +7,8 @@ import { isAuth } from "../utils.js";
 const router = new express.Router();
 
 router.get('/', async(req, res)=>{
-    const products = await Product.find();
+    const products = await Product.find().sort({createdAt: -1})
+    ;
     res.send(products);
 })  
 
@@ -172,6 +173,7 @@ router.get("/slug/:slug", async(req, res) => {
       product.brand = req.body.brand;
       product.countInStock = req.body.countInStock;
       product.description = req.body.description;
+      product.rating = req.body.rating;
       
       await product.save();
        res.send({message: "Product updated"});
