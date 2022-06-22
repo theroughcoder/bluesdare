@@ -33,7 +33,7 @@ router.post(
     res.send({ message: 'Product Created', product });
   })
 );
- 
+  
 const PAGE_SIZE = 3;
 router.get("/admin", isAuth, isAdmin, expressAsyncHandler(async (req, res) => { 
   const {query} = req;
@@ -181,6 +181,16 @@ router.get("/slug/:slug", async(req, res) => {
       res.status(404).send({ message: "Product not found" });
     }
   }));
+
+  router.delete('/:id', isAuth, isAdmin, expressAsyncHandler(async (req, res)=>{
+    const product = await Product.findById(req.params.id);
+    if (product) {
+      await product.remove();
+      res.send({ message: 'Product Deleted' });
+    } else {
+      res.status(404).send({ message: 'Product Not Found' });
+    }
+  }))
 
     
 
