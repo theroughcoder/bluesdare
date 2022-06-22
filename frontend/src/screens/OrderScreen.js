@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import {  useReducer } from "react";
-import { Card, Col, Container, ListGroup, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 import LoadingBox from "../components/LoadingBox";
 // import { toast } from "react-toastify";
@@ -12,6 +12,7 @@ import axios from "axios";
 import MessageBox from "../components/MessageBox";
 import { Store } from "../Store";
 import { useContext } from "react";
+import { toast } from "react-toastify";
 
  
 
@@ -29,11 +30,24 @@ export default function OrderScreen() {
         return { ...state, order: action.payload, loading: false };
       case "FETCH_FAIL":
         return { ...state, loading: false, error: action.payload };
+
+        case 'DELIVER_REQUEST':
+          return { ...state, loadingDeliver: true };
+        case 'DELIVER_SUCCESS':
+          return { ...state, loadingDeliver: false, successDeliver: true };
+        case 'DELIVER_FAIL':
+          return { ...state, loadingDeliver: false };
+        case 'DELIVER_RESET':
+          return {
+            ...state,
+            loadingDeliver: false,
+            successDeliver: false,
+          };
       default:
         return state;
     }
   };
-  const [{ loading, error, order }, dispatch] = useReducer(reducer, {
+  const [{ loading, error, order, loadingDeliver, successDeliver }, dispatch] = useReducer(reducer, {
     order: {},
     loading: true,
     error: "",
@@ -56,7 +70,29 @@ export default function OrderScreen() {
     }else{
       fetchData();
     }
-  }, [id, navigate]);
+
+    if(successDeliver){
+      dispatch({type: "DELIVER_RESET"});
+    }
+  }, [id, navigate, successDeliver]);
+
+  async function deliverOrderHandler() {
+    try {
+      dispatch({ type: 'DELIVER_REQUEST' });
+      const { data } = await axios.put(
+        `/api/orders/${order._id}/deliver`,
+        {},
+        {
+          headers: { authorization: `Bearer ${userInfo.token}` },
+        }
+      );
+      dispatch({ type: 'DELIVER_SUCCESS', payload: data });
+      toast.success('Order is delivered');
+    } catch (err) {
+      toast.error(getError(err));
+      dispatch({ type: 'DELIVER_FAIL' });
+    }
+  }
 
 
   return (
@@ -154,6 +190,16 @@ export default function OrderScreen() {
                     <Col>₹{order.totalPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
+                {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+                  <ListGroup.Item>
+                    {loadingDeliver && <LoadingBox></LoadingBox>}
+                    <div className="d-grid">
+                      <Button type="button" onClick={deliverOrderHandler}>
+                        Deliver Order
+                      </Button>
+                    </div>
+                  </ListGroup.Item>
+                )}
            
               </ListGroup>
             </Card.Body>

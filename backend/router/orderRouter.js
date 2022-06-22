@@ -6,6 +6,46 @@ import Product from "../models/productModel.js";
 import { isAdmin, isAuth } from "../utils.js";
 
 const router = new express.Router();
+
+router.delete(
+  '/:id',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+    if (order) {
+      await order.remove();
+      res.send({ message: 'Order Deleted' });
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
+router.put(
+  '/:id/deliver',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+    if (order) {
+      order.isDelivered = true;
+      order.deliveredAt = Date.now();
+      await order.save();
+      res.send({ message: 'Order Delivered' });
+    } else {
+      res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
+
+router.get(
+  '/',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find().populate('user', 'name');
+    res.send(orders);
+  })
+);
  
 router.post('/', isAuth, expressAsyncHandler(async(req, res)=>{
    
@@ -84,11 +124,7 @@ router.post('/', isAuth, expressAsyncHandler(async(req, res)=>{
     const order = await Order.findById(req.params.id)
    
     if (order) {
-      if(order.user == req.user._id){
         res.send(order);
-      } else{
-        res.status(404).send({ message: "This is not your order ID" }); 
-      }
     } else {
       res.status(404).send({ message: "order not found" });
     }
