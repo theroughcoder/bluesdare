@@ -79,5 +79,52 @@ router.put('/profileupdate', isAuth, expressAsyncHandler(async(req, res)=>{
     }
     res.status(401).send({message: 'Password and confirm password didn'+"'"+'t match'});
 }))
+router.get(
+    '/:id',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+      const users = await User.findById(req.params.id);
+      res.send(users);
+    })
+  );
+router.put(
+    '/:id',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+
+
+    const user = await User.findOne({_id: req.params.id}); 
+    
+    if (user) {
+    user.name = req.body.name,
+    user.email = req.body.email,
+    user.isAdmin = req.body.isAdmin,
+
+      
+      await user.save();
+       res.send({message: "User updated"});
+    } else { 
+      res.status(404).send({ message: "User not found" });
+    }})
+  );
+router.delete(
+    '/:id',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+
+
+    const user = await User.findOne({_id: req.params.id}); 
+    
+    if (user) {
+
+      await user.remove();
+       res.send({message: "User updated"});
+    } else { 
+      res.status(404).send({ message: "User not found" });
+    }})
+  );
 
 export default router;
