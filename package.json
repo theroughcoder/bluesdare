@@ -22,6 +22,5 @@
   },
   "homepage": "https://github.com/theroughcoder/bluesdare#readme",
   "dependencies": {
-    "socket.io": "^4.5.1"
   }
 }
