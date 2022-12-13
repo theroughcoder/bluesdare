@@ -1,8 +1,8 @@
-import express from "express";
-import expressAsyncHandler from "express-async-handler";
-import Product from "../models/productModel.js";
-import { isAdmin } from "../utils.js";
-import { isAuth } from "../utils.js";
+const express = require ("express");
+const expressAsyncHandler = require( "express-async-handler");
+const Product = require( "../models/productModel.js");
+const { isAdmin } = require("../utils.js");
+const { isAuth } = require( "../utils.js");
 
 const router = new express.Router();
 
@@ -194,4 +194,4 @@ router.get("/slug/:slug", async(req, res) => {
 
     
 
-export default router; 
+module.exports = router; 

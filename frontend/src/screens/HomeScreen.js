@@ -44,7 +44,7 @@ function HomeScreen() {
 
       // setProducts(result.data);
     };
-    fetchData();
+    fetchData(); 
   }, []);
 
   

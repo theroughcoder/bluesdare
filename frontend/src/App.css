@@ -98,6 +98,95 @@ main{
   overflow: auto;
 }
 
+/* chatBox */
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.chatbox{
+  color: black;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  
+}
+
+.chatbox ul{
+  overflow: scroll;
+  max-height: 20rem;
+  
+}
+.chatbox li{
+margin-bottom: 1rem;
+}
+.chatbox input{
+  /* width: calc(100% - 9rem); */
+}
+.support-users {
+  background-color: white;
+  height: 100%;
+}
+.support-users li{
+  background-color: white;
+}
+.support-users button {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+}
+.support-users li {
+  margin: 0;
+  background-color: white;
+  border-bottom: 0.1rem #f0f0f0;
+}
+.support-users li:hover{
+  background-color: #f0f0f0;
+}
+.support-users li.selected {
+  background-color: #c0c0c0;
+}
+.support-message {
+  /* padding: 1rem; */
+  height: 70vh;
+  overflow: scroll;
+
+}
+.support-message input{
+  /* width: calc(100% - 1rem); */
+}
+.support-messages ul{
+  height: calc(100vh - 18rem);
+  max-height: calc(100vh - 18rem);
+  overflow: scroll;
+}
+.support-messages li{
+  margin-bottom: 1rem;
+}
+.support-users span {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  position:absolute;
+  margin-left : -25px;
+  margin-top: 10px;
+}
+.support-users .offline{
+  background-color: #808080;
+}
+.support-users .online{
+  background-color: #20a020;
+}
+.support-users .unread{
+  background-color: #f02020;
+}
+
+
+
 @media only screen and (max-width: 620px) {
   /* For mobile phones: */
   .active-cont {

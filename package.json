@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-    "engines": {
+  "engines": {
     "npm": "6.x"
   },
   "scripts": {
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/theroughcoder/bluesdare/issues"
   },
-  "homepage": "https://github.com/theroughcoder/bluesdare#readme"
+  "homepage": "https://github.com/theroughcoder/bluesdare#readme",
+  "dependencies": {
+    "socket.io": "^4.5.1"
+  }
 }

@@ -14,7 +14,7 @@ root.render(
         <App />
       </HelmetProvider>
     </StoreProvider>
-  
+ 
 );
 
 // If you want to start measuring performance in your app, pass a function

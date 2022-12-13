@@ -1,6 +1,5 @@
 {
   "name": "backend",
-  "type": "module",
   "version": "1.0.0",
   "description": "this is beackend",
   "main": "index.js",
@@ -19,6 +18,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.3",
     "multer": "^1.4.5-lts.1",
+    "socket.io": "^4.5.1",
     "streamifier": "^0.1.1"
   }
 }

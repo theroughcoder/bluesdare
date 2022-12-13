@@ -1,9 +1,9 @@
-import express from 'express';
-import bcrypt from 'bcryptjs'
+const express = require ("express");
+const bcrypt = require( "bcryptjs");
 
-import User from '../models/userModel.js'
-import expressAsyncHandler from 'express-async-handler';
-import { generateToken, isAdmin, isAuth } from '../utils.js';
+const User = require( '../models/userModel.js')
+const expressAsyncHandler = require( 'express-async-handler');
+const { generateToken, isAdmin, isAuth } = require( '../utils.js');
  
  
 const router = express.Router();
@@ -127,4 +127,4 @@ router.delete(
     }})
   );
 
-export default router;
+module.exports = router;

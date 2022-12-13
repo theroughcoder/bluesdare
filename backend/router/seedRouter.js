@@ -1,7 +1,7 @@
-import express from "express";
+const express = require ("express");
 
-import Product from "../models/productModel.js";
-import User from "../models/userModel.js";
+const Product = require( "../models/productModel.js");
+const User = require( "../models/userModel.js");
 
   
 // created a new router 
@@ -21,4 +21,4 @@ router.get("/", async(req, res)=>{
    
 
 // export module
-export default router;
+module.exports = router;
