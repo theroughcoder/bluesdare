@@ -56,7 +56,7 @@ export default function OrderScreen() {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const {data} = await axios.get(`/api/orders/${id}`, {
+        const {data} = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/orders/${id}`, {
           headers: {authorization: `Bearer ${userInfo.token}`} 
         });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -80,7 +80,7 @@ export default function OrderScreen() {
     try {
       dispatch({ type: 'DELIVER_REQUEST' });
       const { data } = await axios.put(
-        `/api/orders/${order._id}/deliver`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/orders/${order._id}/deliver`,
         {},
         {
           headers: { authorization: `Bearer ${userInfo.token}` },

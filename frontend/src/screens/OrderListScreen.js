@@ -51,7 +51,7 @@ export default function OrderListScreen() {
     const fetchData = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`/api/orders`, {
+        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/orders`, {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -72,7 +72,7 @@ export default function OrderListScreen() {
 const deleteHandler = async(order) => {
     dispatch({type : 'DELETE_REQUEST'})
     try{
-        const {data} = await axios.delete(`/api/orders/${order._id}`, {headers: { Authorization: `Bearer ${userInfo.token}`}})
+        const {data} = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/orders/${order._id}`, {headers: { Authorization: `Bearer ${userInfo.token}`}})
         toast.success('order deleted');
         dispatch({type: 'DELETE_SUCCESS'})
     }catch(err){
