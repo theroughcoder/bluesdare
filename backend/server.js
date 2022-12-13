@@ -10,7 +10,26 @@ const userRouter = require( "./router/userRouter.js")
 const orderRouter = require( "./router/orderRouter.js")
 const uploadRouter = require( "./router/uploadRouter.js") 
 const { isAdmin } = require( './utils.js');
-   
+const cors = require( 'cors')
+
+
+let allowed = [  'http://localhost:3000','http://postman.com', 'some other link'];
+function options(req, res){
+    let temp;
+    let origin = req.header('origin');
+    if(allowed.indexOf(origin) > -1){
+        temp ={
+            origin: true,
+            optionSuccessStatus: 200
+        } 
+    }else{
+         temp={
+            origin :"stupid"
+         }   
+    }
+    res(null, temp)
+}
+
  dotenv.config();
            
 mongoose.connect(process.env.MONGODB_URL).then(()=> {console.log("Connect to DB")}
