@@ -12,7 +12,7 @@ const { isAdmin } = require( './utils.js');
 const cors = require( 'cors')
 
 
-let allowed = [  'http://localhost:3000','http://postman.com', 'some other link'];
+let allowed = [  'https://bluesdare.vercel.app','http://localhost:3000','http://postman.com', 'some other link'];
 function options(req, res){
     let temp;
     let origin = req.header('origin');
