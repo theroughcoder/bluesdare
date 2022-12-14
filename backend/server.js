@@ -35,6 +35,7 @@ mongoose.connect(process.env.MONGODB_URL).then(()=> {console.log("Connect to DB"
 ).catch(err => console.log(err.message))
    
 const app = express();
+app.use(cors(options))
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
              
