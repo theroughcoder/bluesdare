@@ -1,4 +1,4 @@
-# ![Bluesdare](https://bluesdare.vercel.app/)
+# [Bluesdare](https://bluesdare.vercel.app/)
 
 ## Overview
 
