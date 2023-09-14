@@ -16,8 +16,6 @@ It is an e-commerce project that shows the glimpse of amazon. It is a MERN stack
 * update personal info
 * Loader
 * Reducer for perfect coordination
-* useContext
-
 
 ## Tools
 
