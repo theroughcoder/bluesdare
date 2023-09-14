@@ -2,7 +2,7 @@
 
 ## Overview
 
-It is an e-commerce project that shows the glimpse of amazon. It is a MERN stack project. Which means react is used for frontend, node js with express framework for backend and mongodb as a database. This project has used useContext for storing the variable globally and cloudinary is used for storing images. Axios is the frontend library used for fetching the backend restful API.
+It is an e-commerce project that shows the glimpse of amazon. It is a MERN stack project. Which means react is used for frontend, node js with express framework for backend and mongodb as a database. Cloudinary is used for storing images. Axios is the frontend library used for fetching the backend restful API.
 
 ## Features
 
